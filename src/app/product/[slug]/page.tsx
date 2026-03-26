@@ -44,7 +44,7 @@ export default async function ProductPage({ params }: Props) {
   if (!product) return notFound();
 
   return (
-    <main className="px-10 sm:px-50 py-6 flex flex-col items-center justify-center flex-1">
+    <main className="px-10 sm:px-[8%] py-10 flex flex-col items-center justify-center flex-1">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

@@ -13,7 +13,7 @@ export default async function Home() {
   const products: Products = await getProducts();
 
   return (
-    <main className="px-10 sm:px-50 py-10">
+    <main className="px-10 sm:px-[8%] py-10">
       <h1 className="text-3xl font-bold mb-8">Our Products</h1>
       <ProductList products={products} />
     </main>
