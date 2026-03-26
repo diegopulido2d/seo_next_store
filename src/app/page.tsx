@@ -4,7 +4,7 @@ import ProductList from "@/components/productList";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: "SEO Next Store -Home",
   description:
     "SEO Next Store description for better search engine visibility and social sharing.",
 };

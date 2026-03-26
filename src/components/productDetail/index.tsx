@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Product } from "@/types/product";
+import Link from "next/link";
 
 type Props = {
   product: Product;
@@ -17,8 +18,16 @@ const ProductDetail = ({ product }: Props) => {
           style={{ width: "100%", height: "auto" }}
         />
       </figure>
-
       <div className="flex-1">
+        <div className="flex justify-between mx-0">
+          <Link
+            className="py-2 text-xs cursor-pointer my-3"
+            aria-label={`Button back to products list`}
+            href={"/"}
+          >
+            {"←  Back to products"}
+          </Link>
+        </div>
         <h1 className="text-4xl">{product.title}</h1>
 
         <div className="mt-2">

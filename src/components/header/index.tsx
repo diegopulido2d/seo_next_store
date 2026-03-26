@@ -1,15 +1,14 @@
-"use client";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const Header = () => {
-  const router = useRouter();
   return (
-    <div
+    <Link
       className="bg-gray-800 w-full text-center py-6 text-2xl font-bold text-white cursor-pointer"
-      onClick={() => router.push("/")}
+      href={"/"}
+      aria-label={`Icon back to products list`}
     >
       {"SEO Next Store"}
-    </div>
+    </Link>
   );
 };
 
