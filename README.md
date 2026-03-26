@@ -7,7 +7,7 @@ A React / Next.js e-commerce storefront built with SEO-first principles, demonst
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/diegopulido2d/seo_next_store.git
    cd seo-next-store
    ```
 
@@ -31,9 +31,9 @@ A React / Next.js e-commerce storefront built with SEO-first principles, demonst
 
 ## Technical Decisions
 
-**Next.js App Router** – I chose the App Router because it offers better control over metadata generation, simpler data fetching, and improved performance with React Server Components.
+**Next.js App Router** – I chose App Router because it offers better control over metadata generation, simpler data fetching, and improved performance with React Server Components.
 
-**External API Integration** – The app fetches product data from FakeStore API (https://fakestoreapi.com/docs). I used `fetch` with `cache: "no-store"` to ensure fresh data on every request, which is critical for an e-commerce site where inventory and pricing may change frequently.
+**External API Integration** – The app fetches product data from FakeStore API (https://fakestoreapi.com/docs). I used `fetch` with `cache: "no-store"` to ensure fresh data on every request, which is essential for an e-commerce site where inventory and pricing may change frequently.
 
 **Component Structure** – Components are organized by feature (productCard, productList, productDetail) to keep the code scalable and maintainable. Each component is responsible for its own styling and accessibility features.
 
