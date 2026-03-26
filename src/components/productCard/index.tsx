@@ -19,7 +19,7 @@ export default function ProductCard({ product }: Props) {
             src={product.image}
             alt={product.title}
             fill
-            className="object-contain group-hover:scale-105 transition-transform duration-200"
+            className="object-contain"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           />
         </Link>
