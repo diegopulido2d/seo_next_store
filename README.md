@@ -2,6 +2,8 @@
 
 A React / Next.js e-commerce storefront built with SEO-first principles, demonstrating server-side rendering, dynamic metadata, and semantic HTML for optimal search engine visibility.
 
+<br><br>
+
 ## How to Run the Project
 
 1. Clone the repository:
@@ -29,6 +31,8 @@ A React / Next.js e-commerce storefront built with SEO-first principles, demonst
 
 4. Open [http://localhost:3000](http://localhost:3000) to see the application.
 
+<br><br>
+
 ## Technical Decisions
 
 **Next.js App Router** – I chose App Router because it offers better control over metadata generation, simpler data fetching, and improved performance with React Server Components.
@@ -41,6 +45,8 @@ A React / Next.js e-commerce storefront built with SEO-first principles, demonst
 
 **Tailwind CSS** - Makes styling much more consistent and easier to maintain overall, avoids complex hierarchies.
 
+<br><br>
+
 ## Rendering Strategy (SSR)
 
 The entire application uses **Server-Side Rendering (SSR)** with dynamic routes. This choice was made for SEO reasons:
@@ -50,6 +56,8 @@ The entire application uses **Server-Side Rendering (SSR)** with dynamic routes.
 - **Product Detail Pages** – Each product page is dynamically rendered at request time using the `slug` parameter\*. The `generateMetadata` function runs on the server to insert product titles and descriptions into the `<head>` before the page loads.
 
 \* _The `getProductBySlug()` function executes `getProducts()` and then returns the product that matches with the slug value passed as parameter. It was done this way, because FakeStore API endpoint for specific products uses `product.id`, which is not consistent with the strategy chosen for URLs and routing._
+
+<br><br>
 
 ## SEO Considerations
 
@@ -70,6 +78,5 @@ The entire application uses **Server-Side Rendering (SSR)** with dynamic routes.
 
 **Language and Viewport** – The HTML tag includes `lang="en"` for English content, and viewport meta tags ensure proper mobile rendering.
 
-\
-\
+<br><br>
 _This project was created by Diego F. Pulido on March 2026_
