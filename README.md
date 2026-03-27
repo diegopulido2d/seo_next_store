@@ -1,82 +1,81 @@
 # SEO Next Store
 
-A React / Next.js e-commerce storefront built with SEO-first principles, demonstrating server-side rendering, dynamic metadata, and semantic HTML for optimal search engine visibility.
+Una tienda online construida con React / Next.js siguiendo principios SEO-first, utilizando SSR, metadatos dinámicos y HTML semántico para una visibilidad óptima en buscadores.
 
 <br><br>
 
-## How to Run the Project
+## Cómo ejecutar el proyecto
 
-1. Clone the repository:
+1. Clone el repositorio:
 
    ```bash
    git clone https://github.com/diegopulido2d/seo_next_store.git
    cd seo-next-store
    ```
 
-2. Install dependencies:
+2. Instale las dependencias:
 
    ```bash
    npm install
-   # or
+   # o
    yarn install
    ```
 
-3. Run the development server:
+3. Ejecuta el servidor de desarrollo:
 
    ```bash
    npm run dev
-   # or
+   # o
    yarn dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) to see the application.
+4. Abre [http://localhost:3000](http://localhost:3000) para ver la aplicación.
 
 <br><br>
 
-## Technical Decisions
+## Decisiones técnicas
 
-**Next.js App Router** – I chose App Router because it offers better control over metadata generation, simpler data fetching, and improved performance with React Server Components.
+**Next.js App Router** – Elegí App Router porque ofrece mejor control sobre la generación de metadatos, una forma más simple de obtener datos y un mejor rendimiento con React Server Components.
 
-**External API Integration** – The app fetches product data from FakeStore API (https://fakestoreapi.com/docs). I used `fetch` with `cache: "no-store"` to ensure fresh data on every request, which is essential for an e-commerce site where inventory and pricing may change frequently.
+**Integración con API externa** – La aplicación obtiene datos de productos desde la API de FakeStore (https://fakestoreapi.com/docs). Usé `fetch` con `cache: "no-store"` para asegurar datos actualizados en cada request, algo esencial para un sitio de e-commerce donde el inventario y los precios pueden cambiar frecuentemente.
 
-**Component Structure** – Components are organized by feature (productCard, productList, productDetail) to keep the code scalable and maintainable. Each component is responsible for its own styling and accessibility features.
+**Estructura de componentes** – Los componentes están organizados por funcionalidad (productCard, productList, productDetail) para mantener el código escalable y mantenible. Cada componente es responsable de sus propios estilos y características de accesibilidad.
 
-**TypeScript** – Used for type safety and to catch potential bugs early in development.
+**TypeScript** – Usado para tipado seguro y para detectar errores de forma temprana en el desarrollo.
 
-**Tailwind CSS** - Makes styling much more consistent and easier to maintain overall, avoids complex hierarchies.
-
-<br><br>
-
-## Rendering Strategy (SSR)
-
-The entire application uses **Server-Side Rendering (SSR)** with dynamic routes. This choice was made for SEO reasons:
-
-- **Home Page** – Products are fetched on the server using `getProducts()` and rendered before sending HTML to the client. This ensures search engines see fully populated content.
-
-- **Product Detail Pages** – Each product page is dynamically rendered at request time using the `slug` parameter\*. The `generateMetadata` function runs on the server to insert product titles and descriptions into the `<head>` before the page loads.
-
-\* _The `getProductBySlug()` function executes `getProducts()` and then returns the product that matches with the slug value passed as parameter. It was done this way, because FakeStore API endpoint for specific products uses `product.id`, which is not consistent with the strategy chosen for URLs and routing._
+**Tailwind CSS** - Facilita un estilo más consistente y fácil de mantener, evitando jerarquías complejas de CSS.
 
 <br><br>
 
-## SEO Considerations
+## Estrategia de renderizado (SSR)
 
-**Dynamic Metadata** – Each page exports `Metadata` objects or uses `generateMetadata()` for dynamic routes. The root layout provides default values, while individual pages override them with their specific content (e.g., product titles and descriptions).
+Toda la aplicación utiliza **Server-Side Rendering (SSR)** con rutas dinámicas. Esta decisión se tomó por razones de SEO:
 
-**Semantic HTML** – I used appropriate semantic elements throughout:
+- **Página de inicio** – Los productos se obtienen en el servidor usando `getProducts()` y se renderizan antes de enviar el HTML al cliente. Esto asegura que los motores de búsqueda vean contenido existente e indexable.
 
-- `<main>` for page container wrapper elements
-- `<article>` for product cards and detail pages
-- `<h1>` for main page titles and product names
-- `<figure>` and `<figcaption>` for product images
+- **Páginas de detalle de producto** – Cada página de producto se renderiza dinámicamente en el momento de la request usando el parámetro `slug`\*. La función `generateMetadata` se ejecuta en el servidor para insertar los títulos y descripciones específicas del producto dentro del `<head>` antes de que la página cargue.
 
-**JSON-LD Structured Data** – Product detail pages include a `<script type="application/ld+json">` block with structured data following Schema.org specifications. This helps search engines understand product information and help setting snippets in search results.
-
-**Accessibility** – All images include descriptive `alt` attributes, buttons have `aria-label` properties, and focus states are visible for keyboard navigation.
-
-**Custom 404 Page** – A custom not-found page handles invalid routes, maintaining a good user experience and handling errors properly for search engines.
-
-**Language and Viewport** – The HTML tag includes `lang="en"` for English content, and viewport meta tags ensure proper mobile rendering.
+\* _La función `getProductBySlug()` ejecuta `getProducts()` y luego retorna el producto que coincide con el valor del slug pasado como parámetro. Se hizo de esta manera porque el endpoint de FakeStore para productos específicos usa `product.id`, lo cual no es consistente con la estrategia elegida para URLs y enrutamiento._
 
 <br><br>
-_This project was created by Diego F. Pulido on March 2026_
+
+## Consideraciones de SEO
+
+**Metadatos dinámicos** – Cada página exporta objetos `Metadata` o usa `generateMetadata()` para rutas dinámicas. El layout raíz proporciona valores por defecto, mientras que las páginas individuales los sobrescriben con su contenido específico (ej: títulos y descripciones de productos).
+
+**HTML semántico** – Utilicé elementos semánticos apropiados en toda la aplicación:
+
+- `<main>` para los contenedores principales de cada página
+- `<article>` para las tarjetas de producto y páginas de detalle
+- `<h1>` para los títulos principales de página y nombres de producto
+
+**Datos estructurados JSON-LD** – Las páginas de detalle de producto incluyen un bloque `<script type="application/ld+json">` con datos estructurados siguiendo las especificaciones de Schema.org. Esto ayuda a los motores de búsqueda a entender la información del producto y puede mejorar la visualización en los resultados de búsqueda.
+
+**Accesibilidad** – Todas las imágenes incluyen atributos `alt` descriptivos, los botones tienen propiedades `aria-label`, y los estados de enfoque son visibles para navegación por teclado.
+
+**Página 404 personalizada** – Una página de no encontrado maneja las rutas inválidas, manteniendo una buena experiencia de usuario y manejando los errores correctamente para los motores de búsqueda.
+
+**Idioma y viewport** – La etiqueta HTML incluye `lang="en"` para contenido en inglés, y las meta etiquetas de viewport aseguran un renderizado correcto en dispositivos móviles.
+
+<br><br>
+_Este proyecto fue creado por Diego F. Pulido en Marzo 2026_
