@@ -21,7 +21,7 @@ Una tienda online construida con React / Next.js siguiendo principios SEO-first,
    yarn install
    ```
 
-3. Ejecuta el servidor de desarrollo:
+3. Ejecute el servidor de desarrollo:
 
    ```bash
    npm run dev
@@ -29,7 +29,7 @@ Una tienda online construida con React / Next.js siguiendo principios SEO-first,
    yarn dev
    ```
 
-4. Abre [http://localhost:3000](http://localhost:3000) para ver la aplicación.
+4. Abra [http://localhost:3000](http://localhost:3000) para ver la aplicación.
 
 <br><br>
 
